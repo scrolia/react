@@ -1,4 +1,4 @@
-# Scrolia
+# Scrolia React
 
 A customizable scrollbar component.
 
