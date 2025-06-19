@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@scrolia/react": "workspace:^",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "react-router": "^7.5.0"
+    },
+    "devDependencies": {
+        "@types/react": "~19.0.0",
+        "@types/react-dom": "~19.0.0",
+        "@vitejs/plugin-react-swc": "^3.10.2",
+        "vite": "^6.3.5",
+        "vite-tsconfig-paths": "^5.1.4"
+    }
+}

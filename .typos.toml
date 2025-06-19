@@ -1,0 +1,16 @@
+[files]
+extend-exclude = [
+    ".git/",
+    ".github/",
+    "__MACOSX/",
+    ".DS_Store",
+    "node_modules/",
+    "dist/",
+    "apis/",
+    ".next/",
+    "next-env.d.ts",
+    ".panda",
+    "*.tsbuildinfo",
+    "*.log",
+    "pnpm-debug.log*",
+]

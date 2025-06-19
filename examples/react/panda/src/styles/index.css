@@ -1,0 +1,10 @@
+@layer reset, base, tokens, recipes, utilities;
+
+.nsb {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.nsb::-webkit-scrollbar {
+    display: none;
+}

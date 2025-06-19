@@ -1,0 +1,23 @@
+# Caches
+__MACOSX/
+.DS_Store
+
+# Modules
+node_modules/
+
+# Builds
+dist/
+
+# Next
+.next/
+next-env.d.ts
+
+## Panda
+.panda
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+pnpm-debug.log*

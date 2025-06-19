@@ -1,0 +1,55 @@
+{
+    "name": "@scrolia/react",
+    "version": "0.5.0",
+    "description": "A customizable scrollbar component",
+    "keywords": [
+        "scrolia",
+        "scrollbar",
+        "react",
+        "component",
+        "headless",
+        "ts",
+        "typescript",
+        "js",
+        "javascript"
+    ],
+    "homepage": "https://github.com/scrolia/react",
+    "bugs": "https://github.com/scrolia/react/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/scrolia/react.git",
+        "directory": "packages/react"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Alpheus Tang",
+        "url": "https://alpheus.day"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/types/index.d.ts",
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.js"
+        },
+        "./css": "./dist/index.css",
+        "./dist/index.css": "./dist/index.css",
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.mjs",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "ts-vista": "~0.2.2"
+    },
+    "devDependencies": {
+        "@types/react": "~19",
+        "react": "19.0.0"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0"
+    }
+}
