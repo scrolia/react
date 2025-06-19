@@ -1,0 +1,27 @@
+version: 2
+updates:
+    - package-ecosystem: "npm"
+      directory: "/"
+      schedule:
+          interval: "daily"
+          time: "00:00"
+          timezone: "Etc/UTC"
+      allow:
+          # root
+          - dependency-name: "@apst/biome"
+          - dependency-name: "@apst/tsconfig"
+          - dependency-name: "@biomejs/biome"
+          - dependency-name: "@microsoft/api-extractor"
+          - dependency-name: "@rsbuild/plugin-react"
+          - dependency-name: "@rslib/core"
+          - dependency-name: "sass"
+          - dependency-name: "typedoc"
+          - dependency-name: "typedoc-plugin-markdown"
+          - dependency-name: "typescript"
+          # next
+          - dependency-name: "next"
+          # vite
+          - dependency-name: "@pandacss/dev"
+          - dependency-name: "@vitejs/plugin-react-swc"
+          - dependency-name: "vite"
+          - dependency-name: "vite-tsconfig-paths"
