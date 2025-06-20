@@ -6,7 +6,7 @@
 type ScrollCore = object;
 ```
 
-Defined in: package/src/contexts/index.ts:41
+Defined in: [package/src/contexts/index.ts:41](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L41)
 
 Core for internal logic.
 
@@ -18,7 +18,7 @@ Core for internal logic.
 options: ScrollCoreOptions;
 ```
 
-Defined in: package/src/contexts/index.ts:42
+Defined in: [package/src/contexts/index.ts:42](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L42)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: package/src/contexts/index.ts:42
 ref: React.RefObject<HTMLDivElement | null>;
 ```
 
-Defined in: package/src/contexts/index.ts:43
+Defined in: [package/src/contexts/index.ts:43](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L43)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: package/src/contexts/index.ts:43
 x: ScrollCoreStates;
 ```
 
-Defined in: package/src/contexts/index.ts:44
+Defined in: [package/src/contexts/index.ts:44](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L44)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: package/src/contexts/index.ts:44
 y: ScrollCoreStates;
 ```
 
-Defined in: package/src/contexts/index.ts:45
+Defined in: [package/src/contexts/index.ts:45](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L45)

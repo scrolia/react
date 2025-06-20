@@ -6,7 +6,7 @@
 type ScrollCoreStates = object;
 ```
 
-Defined in: package/src/contexts/index.ts:19
+Defined in: [package/src/contexts/index.ts:19](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L19)
 
 States for the `ScrollCore` context.
 
@@ -18,7 +18,7 @@ States for the `ScrollCore` context.
 hvThumb: boolean;
 ```
 
-Defined in: package/src/contexts/index.ts:23
+Defined in: [package/src/contexts/index.ts:23](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L23)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: package/src/contexts/index.ts:23
 hvTrack: boolean;
 ```
 
-Defined in: package/src/contexts/index.ts:21
+Defined in: [package/src/contexts/index.ts:21](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L21)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: package/src/contexts/index.ts:21
 isActive: boolean;
 ```
 
-Defined in: package/src/contexts/index.ts:33
+Defined in: [package/src/contexts/index.ts:33](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L33)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: package/src/contexts/index.ts:33
 options: ScrollCoreStatesOptions;
 ```
 
-Defined in: package/src/contexts/index.ts:20
+Defined in: [package/src/contexts/index.ts:20](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L20)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: package/src/contexts/index.ts:20
 scrollbarLength: number;
 ```
 
-Defined in: package/src/contexts/index.ts:29
+Defined in: [package/src/contexts/index.ts:29](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L29)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: package/src/contexts/index.ts:29
 scrollbarOffset: number;
 ```
 
-Defined in: package/src/contexts/index.ts:31
+Defined in: [package/src/contexts/index.ts:31](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L31)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: package/src/contexts/index.ts:31
 setHvThumb: React.Dispatch<React.SetStateAction<boolean>>;
 ```
 
-Defined in: package/src/contexts/index.ts:24
+Defined in: [package/src/contexts/index.ts:24](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L24)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: package/src/contexts/index.ts:24
 setHvTrack: React.Dispatch<React.SetStateAction<boolean>>;
 ```
 
-Defined in: package/src/contexts/index.ts:22
+Defined in: [package/src/contexts/index.ts:22](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L22)
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: package/src/contexts/index.ts:22
 setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 ```
 
-Defined in: package/src/contexts/index.ts:34
+Defined in: [package/src/contexts/index.ts:34](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L34)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: package/src/contexts/index.ts:34
 setScrollbarLength: React.Dispatch<React.SetStateAction<number>>;
 ```
 
-Defined in: package/src/contexts/index.ts:30
+Defined in: [package/src/contexts/index.ts:30](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L30)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: package/src/contexts/index.ts:30
 setScrollbarOffset: React.Dispatch<React.SetStateAction<number>>;
 ```
 
-Defined in: package/src/contexts/index.ts:32
+Defined in: [package/src/contexts/index.ts:32](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L32)
 
 ***
 
@@ -128,7 +128,7 @@ Defined in: package/src/contexts/index.ts:32
 timeout: React.RefObject<number | null>;
 ```
 
-Defined in: package/src/contexts/index.ts:25
+Defined in: [package/src/contexts/index.ts:25](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L25)
 
 ***
 
@@ -138,7 +138,7 @@ Defined in: package/src/contexts/index.ts:25
 total: React.RefObject<number>;
 ```
 
-Defined in: package/src/contexts/index.ts:26
+Defined in: [package/src/contexts/index.ts:26](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L26)
 
 ***
 
@@ -148,7 +148,7 @@ Defined in: package/src/contexts/index.ts:26
 view: React.RefObject<number>;
 ```
 
-Defined in: package/src/contexts/index.ts:27
+Defined in: [package/src/contexts/index.ts:27](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L27)
 
 ***
 
@@ -158,4 +158,4 @@ Defined in: package/src/contexts/index.ts:27
 viewOffset: React.RefObject<number>;
 ```
 
-Defined in: package/src/contexts/index.ts:28
+Defined in: [package/src/contexts/index.ts:28](https://github.com/scrolia/react/blob/f82d22480164148d1894602bc5a018480f1727a2/package/src/contexts/index.ts#L28)
