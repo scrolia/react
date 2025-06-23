@@ -1,3 +1,67 @@
+## 0.6.0
+
+### Breaking Changes
+
+- Remove default styles
+- Remove `Scrollbar` component
+- Remove `headless` option
+- Remove `setScrollbarLength` option (configurable via `onSetLength`)
+- Remove `activeTrackClassName`
+- Remove `activeThumbClassName`
+- Remove `x` object options
+- Remove `y` object options
+- All components passed into `Scrollbar` object
+
+### What's New
+
+- Headless by default
+- Add `Provider` component
+- Add `onSetLength` function
+- Add `onScroll` function
+- Add `onDragStart` function
+- Add `onDragMove` function
+- Add `onDragEnd` function
+
+### Migrating from 0.5.0 to 0.6.0
+
+Import `Scrollbar` instead:
+
+```diff
+- import {
+-    Container,
+-    Content,
+-    TrackX,
+-    TrackY,
+-    ThumbX,
+-    ThumbY,
+- } from "@scrolia/react";
++ import { Scrollbar as S } from "@scrolia/react";
+```
+
+`Provider` component required:
+
+```diff
+- <Container>
+-     <Content>{/* */}</Content>
+-     <TrackX>
+-         <ThumbX />
+-     </TrackX>
+-     <TrackY>
+-         <ThumbY />
+-     </TrackY>
+- </Container>
++ <S.Provider>
++     <S.Container>
++         <S.Content>{/* */}</S.Content>
++         <S.TrackX>
++             <S.ThumbX />
++         </S.TrackX>
++         <S.TrackY>
++             <S.ThumbY />
++         </S.TrackY>
++ </S.Provider>
+```
+
 ## 0.5.0 (2025-06-20)
 
 ### What's New

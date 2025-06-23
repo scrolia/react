@@ -5,21 +5,22 @@ node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
 rslib := node_bin + "rslib"
-sass := node_bin + "sass"
+vitest := node_bin + "vitest"
 typedoc := node_bin + "typedoc"
 
-react := "./package"
+react := "package"
 
-example_next_app := "./examples/next/app/"
-example_next_page := "./examples/next/page/"
-example_react_common := "./examples/react/common"
-example_react_panda := "./examples/react/panda"
+test := "test"
+
+example_next := "examples/next"
+example_vite := "examples/vite"
 
 # Default action
 _:
     just lint
     just fmt
     just build
+    just test
 
 # Install
 i:
@@ -47,7 +48,16 @@ fmt:
 # Build package
 build:
     cd ./{{react}} && ../{{rslib}} build
-    cd ./{{react}} && ../{{sass}} static/index.scss:dist/index.css
+
+# Run tests:
+test:
+    cd ./{{test}} && ./{{vitest}} run
+
+# Run tests with different runtimes
+test-all:
+    cd ./test && pnpm run test
+    cd ./test && deno run test
+    cd ./test && bun run test
 
 # Generate APIs documentation
 api:
@@ -55,15 +65,10 @@ api:
 
 # Clean builds
 clean:
-    rm -rf ./{{example_next_app}}/next-env.d.ts
-    rm -rf ./{{example_next_app}}/dist
-    rm -rf ./{{example_next_app}}/.next
-    rm -rf ./{{example_next_page}}/next-env.d.ts
-    rm -rf ./{{example_next_page}}/dist
-    rm -rf ./{{example_next_page}}/.next
-    rm -rf ./{{example_react_common}}/dist
-    rm -rf ./{{example_react_panda}}/dist
-    rm -rf ./{{example_react_panda}}/.panda
+    rm -rf ./{{example_next}}/next-env.d.ts
+    rm -rf ./{{example_next}}/dist
+    rm -rf ./{{example_next}}/.next
+    rm -rf ./{{example_vite}}/dist
     
     rm -rf ./{{react}}/dist
 
@@ -71,10 +76,10 @@ clean:
 clean-all:
     just clean
 
-    rm -rf ./{{example_next_app}}/node_modules
-    rm -rf ./{{example_next_page}}/node_modules
-    rm -rf ./{{example_react_common}}/node_modules
-    rm -rf ./{{example_react_panda}}/node_modules
+    rm -rf ./{{example_next}}/node_modules
+    rm -rf ./{{example_vite}}/node_modules
+
+    rm -rf ./{{test}}/node_modules
 
     rm -rf ./{{react}}/node_modules
 

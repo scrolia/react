@@ -1,0 +1,158 @@
+import type { OnSetLengthResult } from "#/@types/options";
+
+import * as React from "react";
+
+import { useScrollCore } from "#/contexts/scrollcore";
+
+/** Hook for setting the length of the scrollbar. */
+const useSetLength = (): void => {
+    const {
+        options: { disabled, page, onSetLength },
+        contentRef,
+        x,
+        y,
+    } = useScrollCore();
+
+    const isDefinedX: boolean = x.hvTrack && x.hvThumb;
+    const isDefinedY: boolean = y.hvTrack && y.hvThumb;
+
+    React.useEffect((): (() => void) => {
+        const setLength = (): void => {
+            const fnX = (): void => {
+                let total: number = 0;
+                let view: number = 0;
+
+                if (page) {
+                    total = document.body.scrollWidth;
+                    view = window.innerWidth;
+                } else if (contentRef.current) {
+                    total = contentRef.current.scrollWidth;
+                    view = contentRef.current.clientWidth;
+                }
+
+                if (x.total.current === total && x.view.current === view)
+                    return void 0;
+
+                x.total.current = total;
+                x.view.current = view;
+
+                const scrollbarLengthNext: number = (view / total) * view;
+
+                const result: OnSetLengthResult | undefined = onSetLength?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isPage: page,
+                    isDefined: isDefinedX,
+                    total,
+                    view,
+                    viewOffset: 0,
+                    scrollbarLengthPrev: x.scrollbarLength,
+                    scrollbarLengthNext,
+                });
+
+                let length: number;
+
+                if (result?.scrollbarLength) {
+                    length = result.scrollbarLength;
+                } else {
+                    length = scrollbarLengthNext;
+                }
+
+                // functions
+                if (view >= total) {
+                    x.setScrollbarLength(0);
+                } else {
+                    x.setScrollbarLength(length);
+                }
+            };
+            const fnY = (): void => {
+                let total: number = 0;
+                let view: number = 0;
+
+                if (page) {
+                    total = document.body.scrollHeight;
+                    view = window.innerHeight;
+                } else if (contentRef.current) {
+                    total = contentRef.current.scrollHeight;
+                    view = contentRef.current.clientHeight;
+                }
+
+                if (y.total.current === total && y.view.current === view)
+                    return void 0;
+
+                y.total.current = total;
+                y.view.current = view;
+
+                const scrollbarLengthNext: number = (view / total) * view;
+
+                const result: OnSetLengthResult | undefined = onSetLength?.({
+                    position: "y",
+                    isDisabled: disabled,
+                    isPage: page,
+                    isDefined: isDefinedY,
+                    total,
+                    view,
+                    viewOffset: 0,
+                    scrollbarLengthPrev: y.scrollbarLength,
+                    scrollbarLengthNext,
+                });
+
+                let length: number;
+
+                if (result?.scrollbarLength) {
+                    length = result.scrollbarLength;
+                } else {
+                    length = scrollbarLengthNext;
+                }
+
+                // functions
+                if (view >= total) {
+                    y.setScrollbarLength(0);
+                } else {
+                    y.setScrollbarLength(length);
+                }
+            };
+            isDefinedX && fnX();
+            isDefinedY && fnY();
+        };
+
+        setLength();
+
+        if (page) {
+            window.addEventListener("resize", setLength);
+            window.addEventListener("scroll", setLength);
+        } else if (contentRef.current) {
+            contentRef.current.addEventListener("resize", setLength);
+            contentRef.current.addEventListener("scroll", setLength);
+        }
+
+        return (): void => {
+            if (page) {
+                window.removeEventListener("resize", setLength);
+                window.removeEventListener("scroll", setLength);
+            } else if (contentRef.current) {
+                contentRef.current.removeEventListener("resize", setLength);
+                contentRef.current.removeEventListener("scroll", setLength);
+            }
+        };
+    }, [
+        disabled,
+        page,
+        onSetLength,
+        contentRef,
+
+        x.total,
+        x.view,
+        isDefinedX,
+        x.scrollbarLength,
+        x.setScrollbarLength,
+
+        y.total,
+        y.view,
+        isDefinedY,
+        y.scrollbarLength,
+        y.setScrollbarLength,
+    ]);
+};
+
+export { useSetLength };
