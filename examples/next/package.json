@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "next dev --port 3001",
+        "build": "next build",
+        "start": "next start --port 3000",
+        "": ""
+    },
+    "dependencies": {
+        "@scrolia/react": "workspace:^",
+        "next": "15.3.4",
+        "react": "19.0.0",
+        "react-dom": "19.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "24.0.3",
+        "@types/react": "~19.0.0",
+        "@types/react-dom": "~19.0.0"
+    }
+}

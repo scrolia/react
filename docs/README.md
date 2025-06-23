@@ -27,79 +27,15 @@ bun add @scrolia/react
 
 ## Usage
 
-Import CSS for the default styles:
-
-```ts
-import "@scrolia/react/css";
-// or
-import "@scrolia/react/dist/index.css";
-```
-
-For page scrollbar:
+A basic usage example:
 
 ```tsx
 import type * as React from "react";
+import type { Options } from "@scrolia/react";
 
-import { Scrollbar } from "@scrolia/react";
+import { Scrollbar as S } from "@scrolia/react";
 
-const Page = (): React.JSX.Element => {
-    return (
-        <>
-            <Scrollbar page>
-                <div>Content</div>
-            </Scrollbar>
-        </>
-    );
-};
-```
-
-For component scrollbar:
-
-```tsx
-import type * as React from "react";
-
-import { Scrollbar } from "@scrolia/react";
-
-const Component = (): React.JSX.Element => {
-    return (
-        <>
-            <div>
-                <Scrollbar>
-                    <div>Content</div>
-                </Scrollbar>
-            </div>
-        </>
-    );
-};
-```
-
-For scrollbar colors customization, overwrite the following CSS variables:
-
-```css
-:root {
-    --scrollbar-base: #99999955;
-    --scrollbar-hover: #99999977;
-    --scrollbar-active: #99999999;
-}
-```
-
-For more customization:
-
-> `headless` option will remove all the default styles
-
-```tsx
-import type * as React from "react";
-
-import {
-    Container,
-    Content,
-    TrackX,
-    ThumbX,
-    TrackY,
-    ThumbY,
-} from "@scrolia/react";
-
-type ScrollbarProps = Omit<Options, "headless"> & {
+type ScrollbarProps = Pick<Options, "disabled" | "page"> & {
     children?: React.ReactNode;
 };
 
@@ -109,17 +45,141 @@ const Scrollbar = (
     const { children, ...p } = props;
 
     return (
-        <>
-            <Container {...p} headless>
-                <Content>{children}</Content>
-                    <TrackX>
-                        <ThumbX />
-                    </TrackX>
-                    <TrackY>
-                        <ThumbY />
-                    </TrackY>
-            </Container>
-        </>
+        <S.Provider {...p}>
+            <S.Container>
+                <S.Content>
+                    {children}
+                </S.Content>
+                <S.TrackX>
+                    <S.ThumbX />
+                </S.TrackX>
+                <S.TrackY>
+                    <S.ThumbY />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
     );
+};
+
+export type { ScrollbarProps };
+export { Scrollbar };
+```
+
+Apply styles to the components using the preferred styling solution:
+
+```css
+.sla {
+    &.sla-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sla-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sla-track {
+        position: fixed;
+        z-index: 1;
+
+        &.sla-child {
+            position: absolute;
+        }
+
+        &.sla-x {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        &.sla-y {
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 100%;
+        }
+    }
+
+    .sla-thumb {
+        position: absolute;
+        background-color: "#99999955";
+
+        &.sla-x {
+            height: 12px;
+        }
+
+        &.sla-y {
+            width: 12px;
+        }
+    }
 }
+```
+
+```tsx
+import type * as React from "react";
+import type { Options } from "@scrolia/react";
+
+import { Scrollbar as S } from "@scrolia/react";
+import clsx from "clsx";
+
+type ScrollbarProps = Pick<Options, "disabled" | "page"> & {
+    children?: React.ReactNode;
+};
+
+const Scrollbar = (
+    props: ScrollbarProps,
+): React.JSX.Element => {
+    const { children, ...p } = props;
+
+    return (
+        <S.Provider {...p}>
+            <S.Container
+                className={clsx(
+                    "sla", 
+                    "sla-container",
+                )}
+            >
+                <S.Content className="sla-content">
+                    {children}
+                </S.Content>
+                <S.TrackX
+                    className={clsx(
+                        "sla-track",
+                        !p.page && "sla-child",
+                        "sla-x",
+                    )}
+                >
+                    <S.ThumbX
+                        className={clsx(
+                            "sla-thumb",
+                            "sla-x",
+                        )}
+                    />
+                </S.TrackX>
+                <S.TrackY
+                    className={clsx(
+                        "sla-track",
+                        !p.page && "sla-child",
+                        "sla-y",
+                    )}
+                >
+                    <S.ThumbY
+                        className={clsx(
+                            "sla-thumb",
+                            "sla-y",
+                        )}
+                    />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
+    );
+};
+
+export type { ScrollbarProps };
+export { Scrollbar };
 ```

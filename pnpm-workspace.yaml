@@ -1,4 +1,4 @@
 packages:
   - ./package
-  - ./examples/react/*
-  - ./examples/next/*
+  - ./test
+  - ./examples/*
