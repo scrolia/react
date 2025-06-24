@@ -107,7 +107,7 @@ Apply styles to the components using the preferred styling solution:
 
     .sla-thumb {
         position: absolute;
-        background-color: "#99999955";
+        background-color: #99999955;
 
         &.sla-x {
             height: 12px;
