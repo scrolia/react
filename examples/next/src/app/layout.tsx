@@ -12,7 +12,7 @@ export default ({
     return (
         <html
             lang="en"
-            className="nsb"
+            className="sla-nsb"
         >
             <body
                 style={{

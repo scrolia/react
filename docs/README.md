@@ -68,6 +68,15 @@ export { Scrollbar };
 Apply styles to the components using the preferred styling solution:
 
 ```css
+.sla-nsb {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .sla {
     &.sla-container {
         position: relative;

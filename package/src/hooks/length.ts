@@ -45,7 +45,7 @@ const useSetLength = (): void => {
                     isDefined: isDefinedX,
                     total,
                     view,
-                    viewOffset: 0,
+                    viewOffset: x.viewOffset.current,
                     scrollbarLengthPrev: x.scrollbarLength,
                     scrollbarLengthNext,
                 });
@@ -92,7 +92,7 @@ const useSetLength = (): void => {
                     isDefined: isDefinedY,
                     total,
                     view,
-                    viewOffset: 0,
+                    viewOffset: y.viewOffset.current,
                     scrollbarLengthPrev: y.scrollbarLength,
                     scrollbarLengthNext,
                 });
@@ -141,15 +141,17 @@ const useSetLength = (): void => {
         onSetLength,
         contentRef,
 
+        isDefinedX,
         x.total,
         x.view,
-        isDefinedX,
+        x.viewOffset,
         x.scrollbarLength,
         x.setScrollbarLength,
 
+        isDefinedY,
         y.total,
         y.view,
-        isDefinedY,
+        y.viewOffset,
         y.scrollbarLength,
         y.setScrollbarLength,
     ]);
