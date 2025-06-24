@@ -17,7 +17,7 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
             >
                 <S.Container style={container}>
                     <S.Content
-                        className="nsb"
+                        className="sla-nsb"
                         style={content}
                     >
                         {children}
