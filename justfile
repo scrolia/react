@@ -4,7 +4,7 @@ set windows-shell := ["powershell"]
 node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
-rslib := node_bin + "rslib"
+tsdown := node_bin + "tsdown"
 vitest := node_bin + "vitest"
 typedoc := node_bin + "typedoc"
 
@@ -47,7 +47,7 @@ fmt:
 
 # Build package
 build:
-    cd ./{{react}} && ../{{rslib}} build
+    cd ./{{react}} && ../{{tsdown}}
 
 # Run tests:
 test:
