@@ -47,7 +47,7 @@ fmt:
 
 # Build package
 build:
-    cd ./{{react}} && ../{{tsdown}}
+    cd ./{{react}} && ../{{tsdown}} -c ./tsdown.config.ts
 
 # Run tests:
 test:
