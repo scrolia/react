@@ -2,6 +2,8 @@
 
 import type * as React from "react";
 
+import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useSetLength } from "#/hooks/length";
 import { useHandleScroll } from "#/hooks/scroll";
 
@@ -13,9 +15,19 @@ const Container = (props: ContainerProps): React.JSX.Element => {
     useSetLength();
     useHandleScroll();
 
+    const {
+        options: { plugins },
+    } = useScrollCore();
+
+    const p: ContainerProps = getComponentProps({
+        name: "container",
+        props,
+        plugins,
+    });
+
     return (
         <>
-            <div {...props}>{props.children}</div>
+            <div {...p}>{p.children}</div>
         </>
     );
 };

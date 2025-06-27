@@ -12,7 +12,7 @@ type StartPos = {
 /** Hook for thumb logic. */
 const useThumbHandlerY = () => {
     const {
-        options: { disabled, page, onDragStart, onDragMove, onDragEnd },
+        options: { disabled, page, plugins },
         contentRef,
         y: { hvTrack, hvThumb, total, view, viewOffset },
     } = useScrollCore();
@@ -27,16 +27,18 @@ const useThumbHandlerY = () => {
             pointerOffset,
         };
 
-        onDragStart?.({
-            position: "y",
-            isDisabled: disabled,
-            isPage: page,
-            isDefined: hvTrack && hvThumb,
-            total: total.current,
-            view: view.current,
-            viewOffset: viewOffset.current,
-            pointerOffset,
-        });
+        for (const plugin of plugins) {
+            plugin.onDragStart?.({
+                position: "y",
+                isDisabled: disabled,
+                isPage: page,
+                isDefined: hvTrack && hvThumb,
+                total: total.current,
+                view: view.current,
+                viewOffset: viewOffset.current,
+                pointerOffset,
+            });
+        }
 
         const handlePointerMove = (e: PointerEvent): void => {
             const _pointerOffset: number = e.clientY;
@@ -47,27 +49,34 @@ const useThumbHandlerY = () => {
             const delta: number = _pointerOffset - startPos.pointerOffset;
             const ratio: number = _view / _total;
 
-            const result: OnDragMoveResult | undefined = onDragMove?.({
-                position: "y",
-                isDisabled: disabled,
-                isPage: page,
-                isDefined: hvTrack && hvThumb,
-                total: _total,
-                view: _view,
-                viewOffset: viewOffset.current,
-                pointerOffset: _pointerOffset,
-                viewOffsetInit: startPos.viewOffset,
-                pointerOffsetInit: startPos.pointerOffset,
-                delta,
-                ratio,
-            });
+            const scrollTo: number = startPos.viewOffset + delta / ratio;
+
+            let result: OnDragMoveResult | undefined;
+
+            for (const plugin of plugins) {
+                result = plugin.onDragMove?.({
+                    position: "y",
+                    isDisabled: disabled,
+                    isPage: page,
+                    isDefined: hvTrack && hvThumb,
+                    total: _total,
+                    view: _view,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: _pointerOffset,
+                    viewOffsetInit: startPos.viewOffset,
+                    pointerOffsetInit: startPos.pointerOffset,
+                    delta,
+                    ratio,
+                    scrollTo: result?.scrollTo ?? scrollTo,
+                });
+            }
 
             let top: number;
 
             if (result?.scrollTo) {
                 top = result.scrollTo;
             } else {
-                top = startPos.viewOffset + delta / ratio;
+                top = scrollTo;
             }
 
             if (page) {
@@ -84,18 +93,20 @@ const useThumbHandlerY = () => {
         };
 
         const handlePointerUp = (e: PointerEvent): void => {
-            onDragEnd?.({
-                position: "y",
-                isDisabled: disabled,
-                isPage: page,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: e.clientY,
-                viewOffsetInit: startPos.viewOffset,
-                pointerOffsetInit: startPos.pointerOffset,
-            });
+            for (const plugin of plugins) {
+                plugin.onDragEnd?.({
+                    position: "y",
+                    isDisabled: disabled,
+                    isPage: page,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: e.clientX,
+                    viewOffsetInit: startPos.viewOffset,
+                    pointerOffsetInit: startPos.pointerOffset,
+                });
+            }
 
             window.removeEventListener("pointermove", handlePointerMove);
             window.removeEventListener("pointerup", handlePointerUp);

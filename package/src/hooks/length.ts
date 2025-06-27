@@ -7,7 +7,7 @@ import { useScrollCore } from "#/contexts/scrollcore";
 /** Hook for setting the length of the scrollbar. */
 const useSetLength = (): void => {
     const {
-        options: { disabled, page, onSetLength },
+        options: { disabled, page, plugins },
         contentRef,
         x,
         y,
@@ -38,17 +38,22 @@ const useSetLength = (): void => {
 
                 const scrollbarLengthNext: number = (view / total) * view;
 
-                const result: OnSetLengthResult | undefined = onSetLength?.({
-                    position: "x",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: isDefinedX,
-                    total,
-                    view,
-                    viewOffset: x.viewOffset.current,
-                    scrollbarLengthPrev: x.scrollbarLength,
-                    scrollbarLengthNext,
-                });
+                let result: OnSetLengthResult | undefined;
+
+                for (const plugin of plugins) {
+                    result = plugin.onSetLength?.({
+                        position: "x",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: isDefinedX,
+                        total,
+                        view,
+                        viewOffset: x.viewOffset.current,
+                        scrollbarLengthPrev: x.scrollbarLength,
+                        scrollbarLengthNext:
+                            result?.scrollbarLength ?? scrollbarLengthNext,
+                    });
+                }
 
                 let length: number;
 
@@ -85,17 +90,22 @@ const useSetLength = (): void => {
 
                 const scrollbarLengthNext: number = (view / total) * view;
 
-                const result: OnSetLengthResult | undefined = onSetLength?.({
-                    position: "y",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: isDefinedY,
-                    total,
-                    view,
-                    viewOffset: y.viewOffset.current,
-                    scrollbarLengthPrev: y.scrollbarLength,
-                    scrollbarLengthNext,
-                });
+                let result: OnSetLengthResult | undefined;
+
+                for (const plugin of plugins) {
+                    result = plugin.onSetLength?.({
+                        position: "y",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: isDefinedY,
+                        total,
+                        view,
+                        viewOffset: y.viewOffset.current,
+                        scrollbarLengthPrev: y.scrollbarLength,
+                        scrollbarLengthNext:
+                            result?.scrollbarLength ?? scrollbarLengthNext,
+                    });
+                }
 
                 let length: number;
 
@@ -138,7 +148,7 @@ const useSetLength = (): void => {
     }, [
         disabled,
         page,
-        onSetLength,
+        plugins,
         contentRef,
 
         isDefinedX,

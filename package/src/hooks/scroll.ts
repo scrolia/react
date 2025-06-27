@@ -7,7 +7,7 @@ import { useScrollCore } from "#/contexts/scrollcore";
 /** Hook for handling scroll events. */
 const useHandleScroll = (): void => {
     const {
-        options: { disabled, page, onScroll },
+        options: { disabled, page, plugins },
         contentRef,
         x,
         y,
@@ -28,17 +28,22 @@ const useHandleScroll = (): void => {
                 const scrollbarOffsetNext: number =
                     (x.viewOffset.current / x.total.current) * x.view.current;
 
-                const result: OnScrollResult | undefined = onScroll?.({
-                    position: "x",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: isDefinedX,
-                    total: x.total.current,
-                    view: x.view.current,
-                    viewOffset: x.viewOffset.current,
-                    scrollbarOffsetPrev: x.scrollbarOffset,
-                    scrollbarOffsetNext,
-                });
+                let result: OnScrollResult | undefined;
+
+                for (const plugin of plugins) {
+                    result = plugin.onScroll?.({
+                        position: "x",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: isDefinedX,
+                        total: x.total.current,
+                        view: x.view.current,
+                        viewOffset: x.viewOffset.current,
+                        scrollbarOffsetPrev: x.scrollbarOffset,
+                        scrollbarOffsetNext:
+                            result?.scrollbarOffset ?? scrollbarOffsetNext,
+                    });
+                }
 
                 let offset: number;
 
@@ -61,17 +66,22 @@ const useHandleScroll = (): void => {
                 const scrollbarOffsetNext: number =
                     (y.viewOffset.current / y.total.current) * y.view.current;
 
-                const result: OnScrollResult | undefined = onScroll?.({
-                    position: "y",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: isDefinedY,
-                    total: y.total.current,
-                    view: y.view.current,
-                    viewOffset: y.viewOffset.current,
-                    scrollbarOffsetPrev: y.scrollbarOffset,
-                    scrollbarOffsetNext,
-                });
+                let result: OnScrollResult | undefined;
+
+                for (const plugin of plugins) {
+                    result = plugin.onScroll?.({
+                        position: "y",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: isDefinedY,
+                        total: y.total.current,
+                        view: y.view.current,
+                        viewOffset: y.viewOffset.current,
+                        scrollbarOffsetPrev: y.scrollbarOffset,
+                        scrollbarOffsetNext:
+                            result?.scrollbarOffset ?? scrollbarOffsetNext,
+                    });
+                }
 
                 let offset: number;
 
@@ -104,7 +114,7 @@ const useHandleScroll = (): void => {
     }, [
         disabled,
         page,
-        onScroll,
+        plugins,
         contentRef,
 
         x.viewOffset,
