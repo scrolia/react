@@ -41,10 +41,15 @@ export type {
     ScrollCoreOptions,
     ScrollCoreStates,
 } from "#/contexts/scrollcore";
+export type {
+    GetComponentPropsName,
+    GetComponentPropsOptions,
+} from "#/functions/props";
 export type { ThumbHandlerX } from "#/hooks/thumb/x";
 export type { ThumbHandlerY } from "#/hooks/thumb/y";
 
 export { ScrollCoreContext, useScrollCore } from "#/contexts/scrollcore";
+export { getComponentProps } from "#/functions/props";
 export { useSetLength } from "#/hooks/length";
 export { useHandleScroll } from "#/hooks/scroll";
 export { useThumbHandlerX } from "#/hooks/thumb/x";

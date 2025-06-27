@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useThumbHandlerY } from "#/hooks/thumb/y";
 
 /** Props for the `ThumbY` component. */
@@ -10,11 +11,16 @@ type ThumbYProps = React.ComponentProps<"div">;
 
 /** Vertical thumb component. */
 const ThumbY = (props: ThumbYProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
+        options: { plugins },
         y: { setHvThumb, scrollbarLength, scrollbarOffset },
     } = useScrollCore();
+
+    const p: ThumbYProps = getComponentProps({
+        name: "thumbY",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
         setHvThumb(true);
@@ -44,7 +50,7 @@ const ThumbY = (props: ThumbYProps): React.JSX.Element => {
                 style={thumbStyle}
                 onPointerDown={handlePointerDown}
             >
-                {children}
+                {p.children}
             </div>
         </>
     );

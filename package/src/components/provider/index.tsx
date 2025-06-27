@@ -1,3 +1,5 @@
+"use client";
+
 import type { Format } from "ts-vista";
 
 import type { Options } from "#/@types/options";
@@ -43,8 +45,9 @@ const Provider = (options: ProviderProps): React.JSX.Element => {
                 value={{
                     options: {
                         ...options,
-                        disabled: options.disabled || false,
-                        page: options.page || false,
+                        disabled: options.disabled ?? false,
+                        page: options.page ?? false,
+                        plugins: options.plugins ?? [],
                     },
                     contentRef,
                     x: {

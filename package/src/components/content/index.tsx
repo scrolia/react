@@ -3,15 +3,23 @@
 import * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 
 /** Props for the `Content` component. */
 type ContentProps = React.ComponentProps<"div">;
 
 /** Content component. */
 const Content = (props: ContentProps): React.JSX.Element => {
-    const { children, ...p } = props;
+    const {
+        options: { plugins },
+        contentRef,
+    } = useScrollCore();
 
-    const { contentRef } = useScrollCore();
+    const p: ContentProps = getComponentProps({
+        name: "content",
+        props,
+        plugins,
+    });
 
     React.useImperativeHandle(p.ref, (): HTMLDivElement => {
         return contentRef.current as HTMLDivElement;
@@ -25,7 +33,7 @@ const Content = (props: ContentProps): React.JSX.Element => {
                 {...p}
                 ref={contentRef}
             >
-                {children}
+                {p.children}
             </div>
         </>
     );

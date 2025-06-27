@@ -1,36 +1,37 @@
 "use client";
 
-import type { ScrollCore } from "#/contexts/scrollcore";
-
 import * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 
 /** Props for the `TrackY` component. */
 type TrackYProps = React.ComponentProps<"div">;
 
 /** Vertical track component. */
 const TrackY = (props: TrackYProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
-    const core: ScrollCore = useScrollCore();
-
     const {
-        options: { disabled },
-        y,
-    } = core;
+        options: { disabled, plugins },
+        y: { setHvTrack },
+    } = useScrollCore();
+
+    const p: TrackYProps = getComponentProps({
+        name: "trackY",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
-        y.setHvTrack(true);
+        setHvTrack(true);
     }, [
-        y.setHvTrack,
+        setHvTrack,
     ]);
 
     if (disabled) return <></>;
 
     return (
         <>
-            <div {...p}>{children}</div>
+            <div {...p}>{p.children}</div>
         </>
     );
 };
