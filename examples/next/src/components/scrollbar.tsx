@@ -12,37 +12,35 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
     const { disabled, page, children } = props;
 
     return (
-        <>
-            <S.Provider
-                disabled={disabled}
-                page={page}
-            >
-                <S.Container style={container}>
-                    <S.Content
-                        className="sla-nsb"
-                        style={content}
-                    >
-                        {children}
-                    </S.Content>
-                    <S.TrackX
-                        style={{
-                            ...trackX,
-                            ...(page ? {} : childTrack),
-                        }}
-                    >
-                        <S.ThumbX style={thumbX} />
-                    </S.TrackX>
-                    <S.TrackY
-                        style={{
-                            ...trackY,
-                            ...(page ? {} : childTrack),
-                        }}
-                    >
-                        <S.ThumbY style={thumbY} />
-                    </S.TrackY>
-                </S.Container>
-            </S.Provider>
-        </>
+        <S.Provider
+            disabled={disabled}
+            page={page}
+        >
+            <S.Container style={container}>
+                <S.Content
+                    className="sla-nsb"
+                    style={content}
+                >
+                    {children}
+                </S.Content>
+                <S.TrackX
+                    style={{
+                        ...trackX,
+                        ...(page ? {} : childTrack),
+                    }}
+                >
+                    <S.ThumbX style={thumbX} />
+                </S.TrackX>
+                <S.TrackY
+                    style={{
+                        ...trackY,
+                        ...(page ? {} : childTrack),
+                    }}
+                >
+                    <S.ThumbY style={thumbY} />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
     );
 };
 

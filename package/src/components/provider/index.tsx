@@ -40,47 +40,45 @@ const Provider = (options: ProviderProps): React.JSX.Element => {
     const [scrollbarOffsetY, setScrollbarOffsetY] = React.useState<number>(0);
 
     return (
-        <>
-            <ScrollCoreContext
-                value={{
-                    options: {
-                        ...options,
-                        disabled: options.disabled ?? false,
-                        page: options.page ?? false,
-                        plugins: options.plugins ?? [],
-                    },
-                    contentRef,
-                    x: {
-                        hvTrack: hvTrackX,
-                        setHvTrack: setHvTrackX,
-                        hvThumb: hvThumbX,
-                        setHvThumb: setHvThumbX,
-                        total: totalX,
-                        view: viewX,
-                        viewOffset: viewOffsetX,
-                        scrollbarLength: scrollbarLengthX,
-                        setScrollbarLength: setScrollbarLengthX,
-                        scrollbarOffset: scrollbarOffsetX,
-                        setScrollbarOffset: setScrollbarOffsetX,
-                    },
-                    y: {
-                        hvTrack: hvTrackY,
-                        setHvTrack: setHvTrackY,
-                        hvThumb: hvThumbY,
-                        setHvThumb: setHvThumbY,
-                        total: totalY,
-                        view: viewY,
-                        viewOffset: viewOffsetY,
-                        scrollbarLength: scrollbarLengthY,
-                        setScrollbarLength: setScrollbarLengthY,
-                        scrollbarOffset: scrollbarOffsetY,
-                        setScrollbarOffset: setScrollbarOffsetY,
-                    },
-                }}
-            >
-                {options.children}
-            </ScrollCoreContext>
-        </>
+        <ScrollCoreContext
+            value={{
+                options: {
+                    ...options,
+                    disabled: options.disabled ?? false,
+                    page: options.page ?? false,
+                    plugins: options.plugins ?? [],
+                },
+                contentRef,
+                x: {
+                    hvTrack: hvTrackX,
+                    setHvTrack: setHvTrackX,
+                    hvThumb: hvThumbX,
+                    setHvThumb: setHvThumbX,
+                    total: totalX,
+                    view: viewX,
+                    viewOffset: viewOffsetX,
+                    scrollbarLength: scrollbarLengthX,
+                    setScrollbarLength: setScrollbarLengthX,
+                    scrollbarOffset: scrollbarOffsetX,
+                    setScrollbarOffset: setScrollbarOffsetX,
+                },
+                y: {
+                    hvTrack: hvTrackY,
+                    setHvTrack: setHvTrackY,
+                    hvThumb: hvThumbY,
+                    setHvThumb: setHvThumbY,
+                    total: totalY,
+                    view: viewY,
+                    viewOffset: viewOffsetY,
+                    scrollbarLength: scrollbarLengthY,
+                    setScrollbarLength: setScrollbarLengthY,
+                    scrollbarOffset: scrollbarOffsetY,
+                    setScrollbarOffset: setScrollbarOffsetY,
+                },
+            }}
+        >
+            {options.children}
+        </ScrollCoreContext>
     );
 };
 

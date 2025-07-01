@@ -28,14 +28,12 @@ const Content = (props: ContentProps): React.JSX.Element => {
     ]);
 
     return (
-        <>
-            <div
-                {...p}
-                ref={contentRef}
-            >
-                {p.children}
-            </div>
-        </>
+        <div
+            {...p}
+            ref={contentRef}
+        >
+            {p.children}
+        </div>
     );
 };
 

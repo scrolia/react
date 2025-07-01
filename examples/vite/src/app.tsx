@@ -11,28 +11,26 @@ import "#/styles/index.css";
 const App = (): React.JSX.Element => {
     // content
     return (
-        <>
-            <BrowserRouter>
-                <Routes>
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    element={
+                        <Scrollbar page>
+                            <Outlet />
+                        </Scrollbar>
+                    }
+                >
                     <Route
-                        element={
-                            <Scrollbar page>
-                                <Outlet />
-                            </Scrollbar>
-                        }
-                    >
-                        <Route
-                            index
-                            element={<Page1 />}
-                        />
-                        <Route
-                            path="/page2"
-                            element={<Page2 />}
-                        />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </>
+                        index
+                        element={<Page1 />}
+                    />
+                    <Route
+                        path="/page2"
+                        element={<Page2 />}
+                    />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 };
 

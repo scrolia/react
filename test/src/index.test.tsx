@@ -4,11 +4,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { Scrollbar } from "#/components/scrollbar";
 
 const Content = (): React.JSX.Element => {
-    return (
-        <>
-            <div data-testid="content-block" />
-        </>
-    );
+    return <div data-testid="content-block" />;
 };
 
 describe("Scrollbar test", (): void => {

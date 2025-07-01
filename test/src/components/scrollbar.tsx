@@ -8,46 +8,44 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
     const { children, ...p } = props;
 
     return (
-        <>
-            <S.Provider {...p}>
-                <S.Container
-                    data-testid="container"
-                    style={container}
+        <S.Provider {...p}>
+            <S.Container
+                data-testid="container"
+                style={container}
+            >
+                <S.Content
+                    data-testid="content"
+                    className="sla-nsb"
+                    style={content}
                 >
-                    <S.Content
-                        data-testid="content"
-                        className="sla-nsb"
-                        style={content}
-                    >
-                        {children}
-                    </S.Content>
-                    <S.TrackX
-                        data-testid="track-x"
-                        style={{
-                            ...trackX,
-                            ...(p.page ? {} : childTrack),
-                        }}
-                    >
-                        <S.ThumbX
-                            data-testid="thumb-x"
-                            style={thumbX}
-                        />
-                    </S.TrackX>
-                    <S.TrackY
-                        data-testid="track-y"
-                        style={{
-                            ...trackY,
-                            ...(p.page ? {} : childTrack),
-                        }}
-                    >
-                        <S.ThumbY
-                            data-testid="thumb-y"
-                            style={thumbY}
-                        />
-                    </S.TrackY>
-                </S.Container>
-            </S.Provider>
-        </>
+                    {children}
+                </S.Content>
+                <S.TrackX
+                    data-testid="track-x"
+                    style={{
+                        ...trackX,
+                        ...(p.page ? {} : childTrack),
+                    }}
+                >
+                    <S.ThumbX
+                        data-testid="thumb-x"
+                        style={thumbX}
+                    />
+                </S.TrackX>
+                <S.TrackY
+                    data-testid="track-y"
+                    style={{
+                        ...trackY,
+                        ...(p.page ? {} : childTrack),
+                    }}
+                >
+                    <S.ThumbY
+                        data-testid="thumb-y"
+                        style={thumbY}
+                    />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
     );
 };
 
