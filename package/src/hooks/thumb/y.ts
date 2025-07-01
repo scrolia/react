@@ -102,7 +102,7 @@ const useThumbHandlerY = () => {
                     total: total.current,
                     view: view.current,
                     viewOffset: viewOffset.current,
-                    pointerOffset: e.clientX,
+                    pointerOffset: e.clientY,
                     viewOffsetInit: startPos.viewOffset,
                     pointerOffsetInit: startPos.pointerOffset,
                 });
