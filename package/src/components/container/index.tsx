@@ -25,11 +25,7 @@ const Container = (props: ContainerProps): React.JSX.Element => {
         plugins,
     });
 
-    return (
-        <>
-            <div {...p}>{p.children}</div>
-        </>
-    );
+    return <div {...p}>{p.children}</div>;
 };
 
 export type { ContainerProps };

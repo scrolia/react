@@ -44,15 +44,13 @@ const ThumbY = (props: ThumbYProps): React.JSX.Element => {
     };
 
     return (
-        <>
-            <div
-                {...p}
-                style={thumbStyle}
-                onPointerDown={handlePointerDown}
-            >
-                {p.children}
-            </div>
-        </>
+        <div
+            {...p}
+            style={thumbStyle}
+            onPointerDown={handlePointerDown}
+        >
+            {p.children}
+        </div>
     );
 };
 

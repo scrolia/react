@@ -27,13 +27,9 @@ const TrackY = (props: TrackYProps): React.JSX.Element => {
         setHvTrack,
     ]);
 
-    if (disabled) return <></>;
+    if (disabled) return <>{}</>;
 
-    return (
-        <>
-            <div {...p}>{p.children}</div>
-        </>
-    );
+    return <div {...p}>{p.children}</div>;
 };
 
 export type { TrackYProps };
