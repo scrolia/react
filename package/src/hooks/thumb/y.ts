@@ -1,13 +1,9 @@
 import type * as React from "react";
 
 import type { OnDragMoveResult } from "#/@types/options";
+import type { StartPos } from "#/hooks/thumb/x";
 
 import { useScrollCore } from "#/contexts/scrollcore";
-
-type StartPos = {
-    viewOffset: number;
-    pointerOffset: number;
-};
 
 /** Hook for thumb logic. */
 const useThumbYHandler = () => {
