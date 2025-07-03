@@ -5,7 +5,7 @@ import * as React from "react";
 import { useScrollCore } from "#/contexts/scrollcore";
 
 /** Hook for handling scroll events. */
-const useHandleScroll = (): void => {
+const useScrollHandler = (): void => {
     const {
         options: { disabled, page, plugins },
         contentRef,
@@ -133,4 +133,4 @@ const useHandleScroll = (): void => {
     ]);
 };
 
-export { useHandleScroll };
+export { useScrollHandler };

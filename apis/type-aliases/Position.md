@@ -6,6 +6,6 @@
 type Position = "x" | "y";
 ```
 
-Defined in: [package/src/@types/options.ts:4](https://github.com/scrolia/react/blob/9c5681043194149a93fdeb05f7ee147606c0baa9/package/src/@types/options.ts#L4)
+Defined in: [package/src/@types/options.ts:5](https://github.com/scrolia/react/blob/0546efab414d6330c2dc8561a55082235988c073/package/src/@types/options.ts#L5)
 
 The position of the scrollbar.
