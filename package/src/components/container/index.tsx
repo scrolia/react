@@ -4,16 +4,16 @@ import type * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useSetLength } from "#/hooks/length";
-import { useHandleScroll } from "#/hooks/scroll";
+import { useLengthHandler } from "#/hooks/length";
+import { useScrollHandler } from "#/hooks/scroll";
 
 /** Props for the `Container` component. */
 type ContainerProps = React.ComponentProps<"div">;
 
 /** Container component. */
 const Container = (props: ContainerProps): React.JSX.Element => {
-    useSetLength();
-    useHandleScroll();
+    useLengthHandler();
+    useScrollHandler();
 
     const {
         options: { plugins },

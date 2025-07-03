@@ -10,7 +10,7 @@ type StartPos = {
 };
 
 /** Hook for thumb logic. */
-const useThumbHandlerX = () => {
+const useThumbXHandler = () => {
     const {
         options: { disabled, page, plugins },
         contentRef,
@@ -121,7 +121,8 @@ const useThumbHandlerX = () => {
     };
 };
 
-type ThumbHandlerX = ReturnType<typeof useThumbHandlerX>;
+/** Result of the `useThumbXHandler` hook. */
+type ThumbXHandler = ReturnType<typeof useThumbXHandler>;
 
-export type { ThumbHandlerX };
-export { useThumbHandlerX };
+export type { ThumbXHandler };
+export { useThumbXHandler };

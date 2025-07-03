@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useThumbHandlerY } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb/y";
 
 /** Props for the `ThumbY` component. */
 type ThumbYProps = React.ComponentProps<"div">;
@@ -28,7 +28,7 @@ const ThumbY = (props: ThumbYProps): React.JSX.Element => {
         setHvThumb,
     ]);
 
-    const { onPointerDown } = useThumbHandlerY();
+    const { onPointerDown } = useThumbYHandler();
 
     const handlePointerDown = (
         event: React.PointerEvent<HTMLDivElement>,

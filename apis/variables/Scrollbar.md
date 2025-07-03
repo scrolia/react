@@ -6,7 +6,7 @@
 const Scrollbar: object;
 ```
 
-Defined in: [package/src/index.ts:10](https://github.com/scrolia/react/blob/9c5681043194149a93fdeb05f7ee147606c0baa9/package/src/index.ts#L10)
+Defined in: [package/src/index.ts:10](https://github.com/scrolia/react/blob/0546efab414d6330c2dc8561a55082235988c073/package/src/index.ts#L10)
 
 Scrollbar components.
 
@@ -72,48 +72,6 @@ Whether disable the scrollbar.
 
 By default, it is `false`.
 
-###### onDragEnd?
-
-(`options`) => `void`
-
-The function to be called when the scrollbar is released.
-
-###### onDragMove?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollTo?`: `number`;
-\}
-
-The function to be called when the scrollbar is dragged and move.
-
-###### onDragStart?
-
-(`options`) => `void`
-
-The function to be called when the scrollbar is being dragged.
-
-###### onScroll?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollbarOffset?`: `number`;
-\}
-
-The function to be called when the scrollbar is being scrolled.
-
-###### onSetLength?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollbarLength?`: `number`;
-\}
-
-The function to be called when the length of the scrollbar is being set.
-
 ###### page?
 
 `boolean`
@@ -121,6 +79,14 @@ The function to be called when the length of the scrollbar is being set.
 Whether the scrollbar serve for a page.
 
 By default, it is `false`.
+
+###### plugins?
+
+`object`[]
+
+The plugins for the scrollbar.
+
+By default, it is `[]`.
 
 #### Returns
 

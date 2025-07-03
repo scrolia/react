@@ -5,7 +5,7 @@ import * as React from "react";
 import { useScrollCore } from "#/contexts/scrollcore";
 
 /** Hook for setting the length of the scrollbar. */
-const useSetLength = (): void => {
+const useLengthHandler = (): void => {
     const {
         options: { disabled, page, plugins },
         contentRef,
@@ -167,4 +167,4 @@ const useSetLength = (): void => {
     ]);
 };
 
-export { useSetLength };
+export { useLengthHandler };

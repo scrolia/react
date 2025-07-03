@@ -6,6 +6,6 @@
 type OnDragStartOptions = Format<FunctionOptions & OnDragStartBaseOptions>;
 ```
 
-Defined in: [package/src/@types/options.ts:73](https://github.com/scrolia/react/blob/9c5681043194149a93fdeb05f7ee147606c0baa9/package/src/@types/options.ts#L73)
+Defined in: [package/src/@types/options.ts:74](https://github.com/scrolia/react/blob/0546efab414d6330c2dc8561a55082235988c073/package/src/@types/options.ts#L74)
 
 The options for the `onDragStart` function.

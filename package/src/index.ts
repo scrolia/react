@@ -39,22 +39,5 @@ export type { ThumbXProps } from "#/components/thumb/x";
 export type { ThumbYProps } from "#/components/thumb/y";
 export type { TrackXProps } from "#/components/track/x";
 export type { TrackYProps } from "#/components/track/y";
-export type {
-    ScrollCore,
-    ScrollCoreOptions,
-    ScrollCoreStates,
-} from "#/contexts/scrollcore";
-export type {
-    GetComponentPropsName,
-    GetComponentPropsOptions,
-} from "#/functions/props";
-export type { ThumbHandlerX } from "#/hooks/thumb/x";
-export type { ThumbHandlerY } from "#/hooks/thumb/y";
 
-export { ScrollCoreContext, useScrollCore } from "#/contexts/scrollcore";
-export { getComponentProps } from "#/functions/props";
-export { useSetLength } from "#/hooks/length";
-export { useHandleScroll } from "#/hooks/scroll";
-export { useThumbHandlerX } from "#/hooks/thumb/x";
-export { useThumbHandlerY } from "#/hooks/thumb/y";
 export { Scrollbar };
