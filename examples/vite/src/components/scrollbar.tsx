@@ -17,7 +17,10 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
             <S.Container style={container}>
                 <S.Content
                     className="sla-nsb"
-                    style={content}
+                    style={{
+                        ...content,
+                        ...(page ? {} : childContent),
+                    }}
                 >
                     {children}
                 </S.Content>
@@ -50,6 +53,9 @@ const container: React.CSSProperties = {
 
 const content: React.CSSProperties = {
     ...container,
+};
+
+const childContent: React.CSSProperties = {
     overflow: "auto",
 };
 

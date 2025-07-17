@@ -88,7 +88,10 @@ Apply styles to the components using the preferred styling solution:
         position: relative;
         width: 100%;
         height: 100%;
-        overflow: auto;
+        
+        &.sla-child {
+            overflow: scroll;
+        }
     }
 
     .sla-track {
@@ -153,7 +156,12 @@ const Scrollbar = (
                     "sla-container",
                 )}
             >
-                <S.Content className="sla-content">
+                <S.Content
+                    className={clsx(
+                        "sla-content",
+                        !p.page && "sla-child",
+                    )}
+                >
                     {children}
                 </S.Content>
                 <S.TrackX
