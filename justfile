@@ -63,6 +63,14 @@ test-all:
 api:
     cd ./{{react}} && ../{{typedoc}}
 
+# Run Next.js example
+example-next:
+    cd ./{{example_next}} && pnpm run dev
+
+# Run Vite example
+example-vite:
+    cd ./{{example_vite}} && pnpm run dev
+
 # Clean builds
 clean:
     rm -rf ./{{example_next}}/next-env.d.ts
