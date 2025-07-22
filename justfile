@@ -63,13 +63,29 @@ test-all:
 api:
     cd ./{{react}} && ../{{typedoc}}
 
-# Run Next.js example
+# Start Next.js example in development mode
 example-next:
     cd ./{{example_next}} && pnpm run dev
 
-# Run Vite example
+# Build Next.js example
+example-next-build:
+    cd ./{{example_next}} && pnpm run build
+
+# Start Next.js example in production mode
+example-next-start:
+    cd ./{{example_next}} && pnpm run start
+
+# Start Vite example in development mode
 example-vite:
     cd ./{{example_vite}} && pnpm run dev
+
+# Build Vite example
+example-vite-build:
+    cd ./{{example_vite}} && pnpm run build
+
+# Start Vite example in production mode
+example-vite-start:
+    cd ./{{example_vite}} && pnpm run preview
 
 # Clean builds
 clean:
