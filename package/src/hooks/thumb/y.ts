@@ -28,7 +28,7 @@ const useThumbYHandler = () => {
             if (!plugin.onDragStart) continue;
 
             tryPlugin(plugin, plugin.onDragStart, {
-                position: "y",
+                axis: "y",
                 isDisabled: disabled,
                 isPage: page,
                 isDefined: hvTrack && hvThumb,
@@ -57,7 +57,7 @@ const useThumbYHandler = () => {
 
                 result =
                     tryPlugin(plugin, plugin.onDragMove, {
-                        position: "y",
+                        axis: "y",
                         isDisabled: disabled,
                         isPage: page,
                         isDefined: hvTrack && hvThumb,
@@ -99,7 +99,7 @@ const useThumbYHandler = () => {
                 if (!plugin.onDragEnd) continue;
 
                 tryPlugin(plugin, plugin.onDragEnd, {
-                    position: "y",
+                    axis: "y",
                     isDisabled: disabled,
                     isPage: page,
                     isDefined: hvTrack && hvThumb,
