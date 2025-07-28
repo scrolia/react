@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useThumbYHandler } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb";
 
 /** Props for the `ThumbY` component. */
 type ThumbYProps = React.ComponentProps<"div">;
