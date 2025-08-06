@@ -8,7 +8,7 @@ tsdown := node_bin + "tsdown"
 vitest := node_bin + "vitest"
 typedoc := node_bin + "typedoc"
 
-react := "package"
+pkg := "package"
 
 test := "test"
 
@@ -33,7 +33,7 @@ setup:
 
 # Lint with TypeScript Compiler
 tsc:
-    cd ./{{react}} && ../{{tsc}} --noEmit
+    cd ./{{pkg}} && ../{{tsc}} --noEmit
 
 # Lint code
 lint:
@@ -47,7 +47,7 @@ fmt:
 
 # Build package
 build:
-    cd ./{{react}} && ../{{tsdown}} -c ./tsdown.config.ts
+    cd ./{{pkg}} && ../{{tsdown}} -c ./tsdown.config.ts
 
 # Run tests:
 test:
@@ -61,7 +61,7 @@ test-all:
 
 # Generate APIs documentation
 api:
-    cd ./{{react}} && ../{{typedoc}}
+    cd ./{{pkg}} && ../{{typedoc}}
 
 # Start Next.js example in development mode
 example-next:
@@ -87,6 +87,26 @@ example-vite-build:
 example-vite-start:
     cd ./{{example_vite}} && pnpm run preview
 
+# Add/Remove dev version tag for the package
+version-dev VERSION="":
+    node ./scripts/version-dev.mjs ./{{pkg}}/package.json {{VERSION}}
+
+# Publish package with dev tag as dry-run
+publish-dev-try:
+    cd ./{{pkg}} && pnpm publish --no-git-checks --tag dev --dry-run
+
+# Publish package with dev tag
+publish-dev:
+    cd ./{{pkg}} && pnpm publish --no-git-checks --tag dev
+
+# Publish package as dry-run
+publish-try:
+    cd ./{{pkg}} && pnpm publish --no-git-checks --dry-run
+
+# Publish package
+publish:
+    cd ./{{pkg}} && pnpm publish
+
 # Clean builds
 clean:
     rm -rf ./{{example_next}}/next-env.d.ts
@@ -94,7 +114,7 @@ clean:
     rm -rf ./{{example_next}}/.next
     rm -rf ./{{example_vite}}/dist
     
-    rm -rf ./{{react}}/dist
+    rm -rf ./{{pkg}}/dist
 
 # Clean everything
 clean-all:
@@ -105,6 +125,6 @@ clean-all:
 
     rm -rf ./{{test}}/node_modules
 
-    rm -rf ./{{react}}/node_modules
+    rm -rf ./{{pkg}}/node_modules
 
     rm -rf ./node_modules
