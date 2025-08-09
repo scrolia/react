@@ -6,6 +6,7 @@
 
 | Type Alias | Description |
 | ------ | ------ |
+| [Axis](type-aliases/Axis.md) | The axis of the scrollbar. |
 | [ContainerProps](type-aliases/ContainerProps.md) | Props for the `Container` component. |
 | [ContentProps](type-aliases/ContentProps.md) | Props for the `Content` component. |
 | [OnDragEndOptions](type-aliases/OnDragEndOptions.md) | The options for the `onDragEnd` function. |
@@ -20,7 +21,6 @@
 | [Plugin](type-aliases/Plugin.md) | Scrollbar plugin. |
 | [PluginProps](type-aliases/PluginProps.md) | Scrollbar plugin props. |
 | [PluginPropsFunction](type-aliases/PluginPropsFunction.md) | The function to get previous props and return new props. |
-| [Position](type-aliases/Position.md) | The position of the scrollbar. |
 | [ProviderProps](type-aliases/ProviderProps.md) | Props for the `Provider` component. |
 | [ThumbXProps](type-aliases/ThumbXProps.md) | Props for the `ThumbX` component. |
 | [ThumbYProps](type-aliases/ThumbYProps.md) | Props for the `ThumbY` component. |
