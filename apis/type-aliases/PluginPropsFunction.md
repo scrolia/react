@@ -6,7 +6,7 @@
 type PluginPropsFunction<T> = (prev) => T;
 ```
 
-Defined in: [package/src/@types/options.ts:119](https://github.com/scrolia/react/blob/61b524f246cf60e1977c5e1c1f237c9b0c4c8ba2/package/src/@types/options.ts#L119)
+Defined in: [package/src/@types/options.ts:119](https://github.com/scrolia/react/blob/bef514f38138f6c060ddd0fad9edaba13d77962a/package/src/@types/options.ts#L119)
 
 The function to get previous props and return new props.
 
