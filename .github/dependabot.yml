@@ -22,3 +22,7 @@ updates:
           - dependency-name: "@vitejs/plugin-react-swc"
           - dependency-name: "vite"
           - dependency-name: "vite-tsconfig-paths"
+      cooldown:
+          default-days: 1
+          include:
+              - "*"
