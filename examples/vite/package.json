@@ -15,7 +15,7 @@
     "devDependencies": {
         "@types/react": "~19.0.0",
         "@types/react-dom": "~19.0.0",
-        "@vitejs/plugin-react-swc": "^4.2.0",
+        "@vitejs/plugin-react-swc": "^4.2.1",
         "vite": "^7.1.12",
         "vite-tsconfig-paths": "^5.1.4"
     }
