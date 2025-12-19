@@ -17,6 +17,6 @@
         "@types/react-dom": "~19.0.0",
         "@vitejs/plugin-react-swc": "^4.2.2",
         "vite": "^7.3.0",
-        "vite-tsconfig-paths": "^6.0.1"
+        "vite-tsconfig-paths": "^6.0.2"
     }
 }
