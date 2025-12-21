@@ -70,7 +70,7 @@
         "dist"
     ],
     "dependencies": {
-        "ts-vista": "~0.2.2"
+        "ts-vista": "~0.2.3"
     },
     "devDependencies": {
         "@types/react": "~19",
