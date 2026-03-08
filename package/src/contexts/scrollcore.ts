@@ -22,6 +22,35 @@ type ScrollCoreStates = {
     setScrollbarOffset: React.Dispatch<React.SetStateAction<number>>;
 };
 
+const useScrollCoreStates = (): ScrollCoreStates => {
+    const [hvTrack, setHvTrack] = React.useState<boolean>(false);
+    const [hvThumb, setHvThumb] = React.useState<boolean>(false);
+
+    const total = React.useRef<number>(0);
+
+    const view = React.useRef<number>(0);
+
+    const viewOffset = React.useRef<number>(0);
+
+    const [scrollbarLength, setScrollbarLength] = React.useState<number>(0);
+
+    const [scrollbarOffset, setScrollbarOffset] = React.useState<number>(0);
+
+    return {
+        hvTrack,
+        setHvTrack,
+        hvThumb,
+        setHvThumb,
+        total,
+        view,
+        viewOffset,
+        scrollbarLength,
+        setScrollbarLength,
+        scrollbarOffset,
+        setScrollbarOffset,
+    };
+};
+
 /** Core for internal logic. */
 type ScrollCore = {
     options: ScrollCoreOptions;
@@ -46,4 +75,4 @@ const useScrollCore = (): ScrollCore => {
 };
 
 export type { ScrollCoreOptions, ScrollCoreStates, ScrollCore };
-export { ScrollCoreContext, useScrollCore };
+export { useScrollCoreStates, ScrollCoreContext, useScrollCore };
