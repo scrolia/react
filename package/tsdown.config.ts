@@ -14,6 +14,7 @@ export default defineConfig(
             "hooks/thumb": "./src/hooks/thumb.ts",
         },
         platform: "browser",
+        unbundle: true,
     },
     [
         esmPreset(),
