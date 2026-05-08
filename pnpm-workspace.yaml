@@ -3,6 +3,14 @@ packages:
     - ./test
     - ./examples/*
 
+autoInstallPeers: false
+strictPeerDependencies: false
+
+allowBuilds:
+    "@swc/core": false
+    esbuild: false
+    sharp: false
+
 minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:
